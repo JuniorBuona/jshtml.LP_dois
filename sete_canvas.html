@@ -1,0 +1,83 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+	function desenhaQuadrado(x, y, cor) {
+
+		var tela = document.querySelector('canvas');
+		var pincel = tela.getContext('2d');
+
+		pincel.fillStyle = cor; //Quadrado
+		pincel.fillRect(x, y, 50, 50);
+		pincel.fillStroke = 'black';
+		pincel.strokeRect(x, y, 50, 50);
+
+	}
+
+	function criaQuadradoEmX() {
+
+		var x = 0;
+
+		while(x <= 600) {
+
+			desenhaQuadrado(x, 0, 'green');
+			x = x + 50;
+
+		}
+
+	}
+
+	function criaQuadradoEmY() {
+
+		var y = 0;
+
+		while(y <= 400) {
+
+			desenhaQuadrado(0, y, 'green');
+			y = y + 50;
+
+		}
+
+	}	
+
+	criaQuadradoEmX();
+	criaQuadradoEmY();
+
+
+
+
+
+
+
+
+	// function encrementaQuadradosDireita() {
+
+	// 	var quantidade = parseInt(prompt("Quantos quadrados você quer fazer?"));
+
+    // 	var contador = 1;
+
+    // 	while(contador <= quantidade) {
+
+    //     	desenhaQuadradoVerde();
+    //     	contador++;
+
+    //     }
+
+    // }
+
+	// encrementaQuadradosDireita();
+
+
+	// pincel.fillStyle = 'green'; //Quadrado
+	// pincel.fillRect(50, 0, 50, 50);
+	// pincel.fillStroke = 'black';
+	// pincel.strokeRect(50, 0, 50, 50);
+
+
+	// pincel.fillStyle = 'green'; //Quadrado
+	// pincel.fillRect(100, 0, 50, 50);
+	// pincel.fillStroke = 'black';
+	// pincel.strokeRect(100, 0, 50, 50);	
+
+	
+</script>
