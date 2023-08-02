@@ -1,0 +1,27 @@
+<canvas width = "600" height = "400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');//pela a tela do mundo html
+    var pincel = tela.getContext('2d'); //pega a tela e coloca no pincel
+
+    pincel.fillStyle = 'grey'; //cor da tela retangular
+    pincel.fillRect(0, 0, 600, 400) //coordenadas do quadro retangular
+
+    function exibeCirculo(evento) {
+
+        var x = evento.pageX - tela.offsetLeft; //Aqui a tela vai ser  
+        var y = evento.pageY - tela.offsetTop;// subtraída do evento, para 
+           //ficar apenas a tela cinza.
+        pincel.fillStyle = 'blue'; //Cor da bolinha quando clico
+        pincel.beginPath(); //Esse é o caminho para começar a desenhar
+        pincel.arc(x, y, 10, 0, 2 * 3.14);        
+        pincel.fill(); //Preenchimento da bolinha
+        console.log(x + ',' + y); //Pega a coordenada do quadro colorido e
+        //mostra a coordenada do ponto que cliquei
+
+    }
+
+    tela.onclick = exibeAlerta;
+
+</script> 
