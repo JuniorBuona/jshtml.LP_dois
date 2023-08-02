@@ -1,0 +1,119 @@
+<meta charset="UTF-8">
+<canvas width="600" height="400"></canvas>
+
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br><br>");
+
+    }
+
+    function mostra(texto) {
+
+        document.write(texto);
+        pulaLinha();
+
+    }
+    
+
+    function desenhaRetangulo(x, y, largura, altura, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x,y, largura, altura);
+        pincel.strokeStyle ='black';
+        pincel.strokeRect(x,y, largura, altura);
+    }
+
+
+    function desenhaTexto(x , y, texto) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+
+        pincel.font='15px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y);    
+    }
+
+
+    function desenhaBarra(x, y, serie, cores, texto) {
+     
+        desenhaTexto(x, y - 10, texto);
+
+
+        var somaAltura = 0;
+
+        for (var i = 0; i < serie.length; i++) {
+            var altura = serie[i];
+            desenhaRetangulo(x, y + somaAltura, 50, altura, cores[i]);
+            somaAltura = somaAltura + altura; 
+        }
+    }
+
+
+    var quantidadePaises = 5;
+    var paises = [];
+    alert("Há 5 países líderes em tecnologia no mundo! Coloque seus nomes!");
+
+    for(i = 0 ; i < quantidadePaises; i++) {
+
+        var posicaoPais = i + 1;
+        var pais = prompt("Informe o " + posicaoPais + " país: ");
+        paises.push(pais);
+         
+
+    }
+
+    var quantidadeCores = 5;
+    var coresPaises = [];
+
+    for(i = 0 ; i < quantidadeCores; i++) {
+
+        var posicaoCor = i + 1;
+        var corPais = prompt("Informe a cor do " + posicaoCor + " país: ");
+        coresPaises.push(corPais);
+         
+
+    }
+
+    var quantidadeAlturas = 5;
+    var totalAlturas = [];
+
+    for(i = 0 ; i < quantidadeCores; i++) {
+
+        var posicaoAltura = i + 1;
+        var grauTecnologia = parseInt(prompt("Informe a posição de tecnologia do " + posicaoAltura + " país: "));
+        totalAlturas.push(grauTecnologia);
+         
+
+    }
+
+    desenhaBarra(50, 50, totalAlturas, coresPaises, 'Grau de Tecnologia dos 5 países');
+    
+    
+    // var mostraPais = paises = [];
+    // var cores = ['blue','green','yellow','red','black'];
+    // var serie2015 = [50,50,50,50,50];
+    // "serie2015 contém o a altura de cada retângulo"
+
+    // desenhaBarra(50, 50, serie2015, cores, mostraPais);
+    
+
+
+</script>
+
+
+
+   <!-- // for(i=0; i < paises.length; i++) {
+
+        
+    //          document.write(paises[i]);
+
+    //     } -->
