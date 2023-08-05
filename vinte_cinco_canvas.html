@@ -22,14 +22,18 @@
 
     }
 
-    for(var x = 20; x < 600; x++) {
+    var x = 20;
+    function atualizaTela() {
 
         limpaTela();
         desenhaCirculo(x, 20, 10);
+        x++;
 
     }
 
-    
-    
+    setInterval(atualizaTela, 5); 
+    //Exibe no Console de 1 em 1 segundo (1000 = 1 segundo)
+    // (20 = 20 milisegundos)
+
 
 </script>
