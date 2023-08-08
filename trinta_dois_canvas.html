@@ -1,0 +1,76 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var raio = 10
+    var xAleatoria;
+    var yAleatoria;
+
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+
+    }
+
+    function limpaTela() { 
+
+        pincel.clearRect(0, 0, 600, 400);
+
+    }
+
+    function desenhaAlvo(x, y) {
+
+        desenhaCirculo(x, y, raio+20, 'red');
+        desenhaCirculo(x, y, raio+10, 'white');
+        desenhaCirculo(x, y, raio, 'red');
+
+    }
+
+    function atualizaTela() {
+
+        limpaTela();
+        xAleatoria = sorteiaPosicao(600);
+        yAleatoria = sorteiaPosicao(400);
+        desenhaAlvo(xAleatoria, yAleatoria);
+
+    }
+    
+    function sorteiaPosicao(maximo) {
+
+        return Math.floor(Math.random() * maximo);
+
+    }
+
+    setInterval(atualizaTela, 1200);
+
+    function dispara(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+
+        if ( (x > xAleatoria - raio)  //Condição limita o espaço considerado "alvo"!
+            && (x < xAleatoria + raio)
+            && (y > yAleatoria - raio) 
+            && (y < yAleatoria + raio) ) {
+
+            // lógica de acerto?
+    
+            alert('Acertou!');
+        }
+        
+    }
+    
+    tela.onclick = dispara;
+    
+        
+</script>
+
